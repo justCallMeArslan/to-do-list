@@ -127,3 +127,8 @@ ul {
 .project-cont {
     width: 100%;
 }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}

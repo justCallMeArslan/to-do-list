@@ -1,4 +1,5 @@
-import "./style.css"
+import "./style.css";
+import {toggleModal} from "./components/render.js";
 
 
-console.log("Hello World.")
+toggleModal();
