@@ -3,10 +3,11 @@ export const state = {
     currentProjectId: null
 }
 
-export function setCurrentProjectId () {
+export function setCurrentProjectId (id) {
     state.currentProjectId = id;
 }
 
 export function getCurrentProjectId() {
     state.projects.find(prjct => prjct.id === state.currentProjectId);
 }
+

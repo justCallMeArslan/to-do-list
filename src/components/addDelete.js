@@ -1,6 +1,6 @@
-import { state, getCurrentProjectId, setCurrentProjectId } from "./state";
+import { state, setCurrentProjectId, getCurrentProjectId } from "./state.js";
 
-export function createProject(name) { 
+export function createProject(name) {
     return {
         id: crypto.randomUUID().slice(0, 10),
         name: name,
@@ -11,11 +11,10 @@ export function createProject(name) {
 
 export function addProject(name) {
     const project = createProject(name);
-    state.projects.push(project)
+    state.projects.push(project);
+
     if (state.projects.length === 1) {
         setCurrentProjectId(project.id);
     }
-
-
 }
 
