@@ -6,7 +6,7 @@ import { addProject, deleteProject } from "./components/addDelete.js";
 
 toggleModal();
 
-// testing ground
+// testing playground
 addProject("A");
 addProject("B");
 
