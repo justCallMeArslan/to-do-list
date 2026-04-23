@@ -27,3 +27,16 @@ export function deleteProject(id) {
         }
     }
 }
+
+
+
+export function createNote (tile) {
+    return {
+        
+    }
+}
+
+
+export function addNote(title) {
+
+}
