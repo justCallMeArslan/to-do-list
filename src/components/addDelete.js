@@ -3,7 +3,7 @@ import { state, setCurrentProjectId, getCurrentProjectId } from "./state.js";
 export function createProject(name) {
     return {
         id: crypto.randomUUID().slice(0, 10),
-        name: name,
+        name,
         notes: []
     }
 }
@@ -31,6 +31,10 @@ export function deleteProject(id) {
 
 export function createNote(tile) { // factory for notes
     return {
+        id: crypto.randomUUID().slice(0, 5),
+        title,
+
+
     }
 }
 
