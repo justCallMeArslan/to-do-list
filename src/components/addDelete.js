@@ -33,12 +33,15 @@ export function createNote(tile) { // factory for notes
     return {
         id: crypto.randomUUID().slice(0, 5),
         title,
-
-
+        description,
+        deadline,
+        priority,
+        complete
     }
 }
 
 export function addNote(title) {
+    const note = createNote(title);
 }
 
 export function deleteNote(id) {
