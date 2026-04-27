@@ -22,21 +22,31 @@
         </div>
       </div>
       <div class="btn-cont">
-        <button class="add-btn">Add project</button>
+        <button class="add-proj-btn">Add project</button>
       </div>
       <div class="project-cont"></div>
     </div>
-    <div class="note-contaner"></div>
+    <div class="note-contaner">
+      
+    </div>
   </div>
   <div>
-    <dialog class="dialog">
-      <form class="form-container">
-        <label for="form-title">Title</label>
+    <dialog class="proj-dialog">
+      <form class = "proj-cont form-container">
+         <label for="form-name">Project name:</label>
+        <input type="text" name="title" id="form-name" required>
+      </form>
+    </dialog>
+  </div>
+  <div>
+    <dialog class="note-dialog">
+      <form class="note-cont form-container">
+        <label for="form-title">Title:</label>
         <input type="text" name="title" id="form-title" required>
-        <label for="form-description">Description</label>
+        <label for="form-description">Description:</label>
         <textarea name="description" id="form-description" rows="5" cols="50" placeholder="Your note.."
           required></textarea>
-        <label for="form-deadline">Deadline date</label>
+        <label for="form-deadline">Deadline date:</label>
         <input type="date" name="deadline" id="form-deadline" required>
         <label>
           <input type="checkbox" name="priority" id="priority" class="checkbox">

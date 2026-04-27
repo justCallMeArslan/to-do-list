@@ -1,7 +1,7 @@
-export function toggleModal() {
-    const addNoteBtn = document.querySelector(".add-btn")
-    const form = document.querySelector(".form-container");
-    const modal = document.querySelector (".dialog");
+export function toggleProjModal() {
+    const addNoteBtn = document.querySelector(".add-proj-btn")
+    const form = document.querySelector(".proj-cont");
+    const modal = document.querySelector (".proj-dialog");
     const submitNoteBtn = document.querySelector(".submit-note");
 
     addNoteBtn.addEventListener("click", ()=> {
@@ -15,3 +15,6 @@ export function toggleModal() {
 
 }
 
+export function toggleNoteModal () {
+
+}

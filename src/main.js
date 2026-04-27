@@ -1,10 +1,10 @@
 import "./style.css";
 import { state } from "./components/state.js";
-import {toggleModal} from "./components/render.js";
+import {toggleProjModal} from "./components/render.js";
 import { addProject, deleteProject, addNote, deleteNote } from "./components/addDelete.js";
 
 
-toggleModal();
+toggleProjModal();
 
 // testing playground
 addProject("A");
