@@ -132,3 +132,15 @@ ul {
     display: flex;
     flex-direction: column;
 }
+
+.note-container {
+    display: grid;
+    grid-template-columns: 1fr 10%;
+    grid-template-rows: 1fr 10%;
+}
+
+.add-note-btn-cont {
+    grid-area: 2/2/3/3;
+    display: grid;
+    place-items: center;
+}

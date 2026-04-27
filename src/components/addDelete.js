@@ -28,7 +28,6 @@ export function deleteProject(id) {
     }
 }
 
-
 export function createNote(tile) { // factory for notes
     return {
         id: crypto.randomUUID().slice(0, 5),
