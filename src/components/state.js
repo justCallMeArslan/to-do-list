@@ -8,6 +8,6 @@ export function setCurrentProjectId (id) {
 }
 
 export function getCurrentProjectId() {
-    state.projects.find(prjct => prjct.id === state.currentProjectId);
+   return state.projects.find(prjct => prjct.id === state.currentProjectId);
 }
 
