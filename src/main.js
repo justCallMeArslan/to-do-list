@@ -1,6 +1,6 @@
 import "./style.css";
 import { state } from "./components/state.js";
-import {toggleProjModal, toggleNoteModal} from "./components/render.js";
+import {toggleProjModal, toggleNoteModal, toggleAddNoteBtn} from "./components/render.js";
 import { addProject, deleteProject, addNote, deleteNote } from "./components/addDelete.js";
 
 
@@ -10,6 +10,7 @@ toggleNoteModal();
 // testing playground
 addProject("A");
 addProject("B");
+toggleAddNoteBtn();
 
 console.log("projects:", state.projects);
 console.log("active:", state.currentProjectId);

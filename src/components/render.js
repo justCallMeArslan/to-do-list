@@ -1,7 +1,7 @@
 import { state, setCurrentProjectId, getCurrentProjectId } from "./state.js";
 
 export function toggleProjModal() {
-    const addProjBtn = document.querySelector(".add-proj-btn")
+    const addProjBtn = document.querySelector(".add-proj-btn");
     const form = document.querySelector(".proj-cont");
     const modal = document.querySelector(".proj-dialog");
 
@@ -20,12 +20,6 @@ export function toggleNoteModal() {
     const form = document.querySelector(".note-cont");
     const modal = document.querySelector(".note-dialog");
 
-    if (!state.currentProjectId) {
-        addNoteBtn.disabled = true;
-    } else {
-        addNoteBtn.disabled = false;
-    }
-
     addNoteBtn.addEventListener("click", () => {
         modal.showModal();
     })
@@ -35,3 +29,11 @@ export function toggleNoteModal() {
         form.reset();
     })
 }
+
+
+export function toggleAddNoteBtn () {
+
+    const addNoteBtn = document.querySelector(".add-note-btn");
+    addNoteBtn.disabled = !state.currentProjectId; // if no projects - button disabled
+
+} 

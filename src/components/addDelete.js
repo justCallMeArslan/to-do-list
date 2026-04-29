@@ -41,6 +41,7 @@ export function createNote(tile) { // factory for notes
 
 export function addNote(title) {
     const note = createNote(title);
+    
 }
 
 export function deleteNote(id) {
