@@ -8,8 +8,8 @@ toggleProjModal();
 toggleNoteModal();
 
 // testing playground
-addProject("A");
-addProject("B");
+addProject("Work");
+addProject("Bork");
 toggleAddNoteBtn();
 
 console.log("projects:", state.projects);
