@@ -41,7 +41,7 @@ export function createNote(tile) { // factory for notes
 
 export function addNote(title) {
     const note = createNote(title);
-    
+    // search for currentPorjectId and push into object of this id
 }
 
 export function deleteNote(id) {
