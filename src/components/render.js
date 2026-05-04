@@ -33,5 +33,5 @@ export function toggleNoteModal() {
 
 export function toggleAddNoteBtn () {
     const addNoteBtn = document.querySelector(".add-note-btn");
-    addNoteBtn.disabled = !state.currentProject; // if no projects - button disabled
+    addNoteBtn.disabled = !state.currentProjectId; // if no projects - button disabled
 } 
