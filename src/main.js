@@ -6,6 +6,7 @@ import { addProject, deleteProject, addNote, deleteNote } from "./components/add
 
 toggleProjModal();
 toggleNoteModal();
+toggleAddNoteBtn();
 
 // testing playground
 addProject("Work");

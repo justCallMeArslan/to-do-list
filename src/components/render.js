@@ -1,4 +1,4 @@
-import { state, setCurrentProjectId, getCurrentProjectId } from "./state.js";
+import { state, setCurrentProjectId, getCurrentProject } from "./state.js";
 
 export function toggleProjModal() {
     const addProjBtn = document.querySelector(".add-proj-btn");
@@ -33,5 +33,5 @@ export function toggleNoteModal() {
 
 export function toggleAddNoteBtn () {
     const addNoteBtn = document.querySelector(".add-note-btn");
-    addNoteBtn.disabled = !state.currentProjectId; // if no projects - button disabled
+    addNoteBtn.disabled = !state.currentProject; // if no projects - button disabled
 } 
