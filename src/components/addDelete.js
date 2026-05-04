@@ -1,4 +1,4 @@
-import { state, setCurrentProjectId, getCurrentProjectId } from "./state.js";
+import { state, setCurrentProjectId, getCurrentProject } from "./state.js";
 
 export function createProject(name) {
     return {
@@ -46,10 +46,28 @@ export function createNote({ title, description = "", deadline = null,
     }
 }
 
-export function addNote(title) {
-    const note = createNote(title);
-    // search for currentPorjectId and push into object of this id
+export function addNote(noteData) {
+    const current = getCurrentProject(); //stored for easier validation
+    if (!current) {
+        console.warn("No active projects");
+        return; // stop execution
+    }
+    if (!Array.isArray(current.notes)) { // validation to make sure (arg) is array
+        console.warn("Notes is not an Array. Ressetting required.");
+        current.notes = []; // if data corrupted or wrong type , reset to array
+    }
+
+    const note = createNote(noteData);
+    current.notes.push(note);
 }
 
 export function deleteNote(id) {
+    const current = getCurrentProject();
+
+    if (!current) {
+        console.warn("No active projects");
+        return; // stops execution 
+    }
+
+    current.notes = current.notes.filter(n => n.id !== id);
 }
