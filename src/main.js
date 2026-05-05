@@ -1,7 +1,7 @@
 import "./style.css";
 import { state } from "./components/state.js";
-import {toggleProjModal, toggleNoteModal, toggleAddNoteBtn} from "./components/render.js";
-import { addProject, deleteProject, addNote, deleteNote } from "./components/addDelete.js";
+import {toggleProjModal, toggleNoteModal, toggleAddNoteBtn} from "./components/ui.js";
+import { addProject, deleteProject, addNote, deleteNote } from "./components/appLogic.js";
 
 
 toggleProjModal();
