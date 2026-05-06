@@ -39,13 +39,22 @@ export function updateNoteBtnState() {
     addNoteBtn.disabled = !state.currentProjectId; // if no projects - button disabled
 }
 
-export function renderProjects(handleProjectClick) {
+export function renderProjects(handleProjectClick, handleProjRemoval) {
     const projCont = document.querySelector(".project-cont"); // placed out of loop, 
     // to prevent multiple query
     projCont.innerHTML = "";
     state.projects.forEach(p => {
+        const projectBox = document.createElement("div");
+        projectBox.classList.add("new-proj-cont");
         const newProject = document.createElement("p");
         newProject.textContent = p.name;
+
+        const removeProjBtn = document.createElement("button");
+        removeProjBtn.textContent = "X";
+        removeProjBtn.classList.add("remove-proj-btn");
+        removeProjBtn.addEventListener("click", () => {
+            handleProjRemoval(p.id);
+        })
 
         if (p.id === state.currentProjectId) { // highlighting current project
             newProject.classList.add("highlighted");
@@ -55,7 +64,8 @@ export function renderProjects(handleProjectClick) {
             handleProjectClick(p.id);
         });
 
-        projCont.appendChild(newProject);
+        projectBox.append(newProject, removeProjBtn);
+        projCont.appendChild(projectBox);
     })
 }
 

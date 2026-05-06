@@ -5,10 +5,26 @@ import {
 } from "./components/ui.js";
 import { addProject, deleteProject, addNote, deleteNote } from "./components/appLogic.js";
 
+
+bindProjModal(handleProjBind);
+renderApp();
+
 function renderApp() {
-    renderProjects(handleProjectClick);
+    renderProjects(handleProjectClick, handleProjRemoval);
     renderNotes();
     updateNoteBtnState();
+}
+
+renderApp();
+
+function handleProjBind(projectName) {
+    addProject(projectName);
+    renderApp();
+}
+
+function handleProjRemoval(id) {
+    deleteProject(id);
+    renderApp();
 }
 
 function handleProjectClick(id) {
@@ -16,7 +32,3 @@ function handleProjectClick(id) {
     renderApp()
 }
 
-function handleProjBind (projectName) {
-    addProject(projectName);
-    renderApp();
-}
