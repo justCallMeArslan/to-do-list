@@ -22,6 +22,11 @@ function handleProjBind(projectName) {
     renderApp();
 }
 
+function handleNoteBind(noteData) {
+    addNote(noteData);
+    renderApp();
+}
+
 function handleProjRemoval(id) {
     deleteProject(id);
     renderApp();
