@@ -71,3 +71,12 @@ export function deleteNote(id) {
 
     current.notes = current.notes.filter(n => n.id !== id);
 }
+
+
+export function toggleCompleted(id) {
+    const currentProject = getCurrentProject();
+    const note = currentProject.notes.find(n => n.id === id);
+    if (!note) return;
+
+    note.complete = !note.complete;
+}

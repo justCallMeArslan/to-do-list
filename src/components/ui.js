@@ -1,4 +1,5 @@
 import { state, setCurrentProjectId, getCurrentProject } from "./state.js";
+import { format } from "date-fns";
 
 export function bindProjModal(handleProjBind) { // 
     const addProjBtn = document.querySelector(".add-proj-btn");
@@ -35,10 +36,11 @@ export function bindNoteModal(handleNoteBind) {  // provides data on submit
         const notePriority = form.querySelector("#priority");
 
         const noteData = {
-            title: noteTitle.value,
-            description: noteDescr.value,
+            title: noteTitle.value.trim(),
+            description: noteDescr.value.trim(),
             deadline: noteDeadline.value,
-            priority: notePriority.checked
+            priority: notePriority.checked,
+            complete: false
         }
 
         handleNoteBind(noteData);
@@ -62,13 +64,13 @@ export function renderProjects(handleProjectClick, handleProjRemoval) {
         newProject.textContent = p.name;
 
         const removeProjBtn = document.createElement("button");
-        removeProjBtn.textContent = "X";
+        removeProjBtn.textContent = "x";
         removeProjBtn.classList.add("remove-proj-btn");
         removeProjBtn.addEventListener("click", () => {
             handleProjRemoval(p.id);
         })
 
-        if (p.id === state.currentProjectId) { // highlighting current project
+        if (p.id === state.currentProjectId) { // highlights current project
             newProject.classList.add("highlighted");
         }
 
@@ -81,12 +83,56 @@ export function renderProjects(handleProjectClick, handleProjRemoval) {
     })
 }
 
-export function renderNotes() {
+export function renderNotes(handleNoteRemoval, handleToggleComplete) {
+    const noteCont = document.querySelector(".render-note-cont");
+    noteCont.innerHTML = "";
+    const currentProj = getCurrentProject();
+    if (!currentProj) {
+        return
+    };
+    currentProj.notes.forEach(n => {
+        const noteBox = document.createElement("article");
+        noteBox.classList.add("new-note-cont");
+        const newTitle = document.createElement("p");
+        newTitle.textContent = n.title;
+        const newDescr = document.createElement("p");
+        newDescr.textContent = n.description;
+        const newDeadline = document.createElement("p");
+        newDeadline.textContent = `Due: ${format(new Date(n.deadline), "dd MMM yyyy")}`; 
+        const complete = document.createElement("input");
+        complete.type = "checkbox";
+        complete.checked = n.complete;
+        complete.addEventListener("change", () => {
+            handleToggleComplete(n.id)
+        })
 
+        labelComplete.appendChild(complete)
+        labelComplete.append("Is task completed?")
+
+        if (n.priority) {
+            noteBox.classList.add("priority")
+        }
+
+        if (n.complete) {
+            noteBox.classList.add("complete")
+        }
+        console.log(n.complete, noteBox.className);
+
+        const removeNoteBtn = document.createElement("button");
+        removeNoteBtn.textContent = "x";
+        removeNoteBtn.classList.add("remove-note-btn");
+        removeNoteBtn.addEventListener("click", () => {
+            handleNoteRemoval(n.id);
+        })
+
+        noteBox.append(newTitle, newDescr, newDeadline, labelComplete, removeNoteBtn);
+        noteCont.appendChild(noteBox);
+
+    })
 }
 
 
-export function updateNoteBtnState() { 
+export function updateNoteBtnState() {
     const addNoteBtn = document.querySelector(".add-note-btn");
     addNoteBtn.disabled = !state.currentProjectId; // if no projects - button disabled
 }

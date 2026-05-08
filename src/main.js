@@ -3,19 +3,18 @@ import { setCurrentProjectId, state } from "./components/state.js";
 import {
     bindProjModal, bindNoteModal, updateNoteBtnState, renderProjects, renderNotes
 } from "./components/ui.js";
-import { addProject, deleteProject, addNote, deleteNote } from "./components/appLogic.js";
+import { addProject, deleteProject, addNote, deleteNote, toggleCompleted} from "./components/appLogic.js";
 
 
 bindProjModal(handleProjBind);
+bindNoteModal(handleNoteBind);
 renderApp();
 
 function renderApp() {
     renderProjects(handleProjectClick, handleProjRemoval);
-    renderNotes();
+    renderNotes(handleNoteRemoval, handleToggleComplete);
     updateNoteBtnState();
 }
-
-renderApp();
 
 function handleProjBind(projectName) {
     addProject(projectName);
@@ -32,8 +31,17 @@ function handleProjRemoval(id) {
     renderApp();
 }
 
+function handleNoteRemoval(id){
+    deleteNote(id);
+    renderApp();
+}
+
 function handleProjectClick(id) {
     setCurrentProjectId(id);
     renderApp()
 }
 
+function handleToggleComplete (id) {
+    toggleCompleted(id);
+    renderApp();
+}
