@@ -99,6 +99,7 @@ export function renderNotes(handleNoteRemoval, handleToggleComplete) {
         newDescr.textContent = n.description;
         const newDeadline = document.createElement("p");
         newDeadline.textContent = `Due: ${format(new Date(n.deadline), "dd MMM yyyy")}`; 
+        const labelComplete = document.createElement("label");
         const complete = document.createElement("input");
         complete.type = "checkbox";
         complete.checked = n.complete;
