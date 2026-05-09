@@ -18,7 +18,8 @@ export function addProject(name) {
 }
 
 export function deleteProject(id) {
-    state.projects = state.projects.filter(p => p.id !== id); //creates new array without removed
+    state.projects = state.projects.filter(p => p.id !== id); //creates new array without 
+    // project with filtered id
     if (state.currentProjectId === id) { // checks if removed isCurrent 
         if (state.projects.length > 0) {
             state.currentProjectId = state.projects[0].id; // sets current to first item in array
@@ -71,7 +72,6 @@ export function deleteNote(id) {
 
     current.notes = current.notes.filter(n => n.id !== id);
 }
-
 
 export function toggleCompleted(id) {
     const currentProject = getCurrentProject();
