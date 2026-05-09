@@ -62,7 +62,7 @@ export function renderProjects(handleProjectClick, handleProjRemoval) {
         projectBox.classList.add("new-proj-cont");
         const newProject = document.createElement("p");
         newProject.textContent = p.name;
-
+        newProject.classList.add("title");
         const removeProjBtn = document.createElement("button");
         removeProjBtn.textContent = "x";
         removeProjBtn.classList.add("remove-proj-btn");
@@ -95,11 +95,16 @@ export function renderNotes(handleNoteRemoval, handleToggleComplete) {
         noteBox.classList.add("new-note-cont");
         const newTitle = document.createElement("p");
         newTitle.textContent = n.title;
+        newTitle.classList.add("title");
         const newDescr = document.createElement("p");
         newDescr.textContent = n.description;
+        newDescr.classList.add("description");
         const newDeadline = document.createElement("p");
-        newDeadline.textContent = `Due: ${format(new Date(n.deadline), "dd MMM yyyy")}`; 
+        newDeadline.textContent = `Due: ${format(new Date(n.deadline), "dd MMM yyyy")}`;
+        newDeadline.classList.add("deadline");
         const labelComplete = document.createElement("label");
+        labelComplete.classList.add("labelComplete");
+        const labelText = document.createTextNode("Is task completed?");
         const complete = document.createElement("input");
         complete.type = "checkbox";
         complete.checked = n.complete;
@@ -107,8 +112,8 @@ export function renderNotes(handleNoteRemoval, handleToggleComplete) {
             handleToggleComplete(n.id)
         })
 
-        labelComplete.appendChild(complete)
-        labelComplete.append("Is task completed?")
+        labelComplete.append(labelText, complete);
+ 
 
         if (n.priority) {
             noteBox.classList.add("priority")
@@ -117,10 +122,9 @@ export function renderNotes(handleNoteRemoval, handleToggleComplete) {
         if (n.complete) {
             noteBox.classList.add("complete")
         }
-        console.log(n.complete, noteBox.className);
 
         const removeNoteBtn = document.createElement("button");
-        removeNoteBtn.textContent = "x";
+        removeNoteBtn.textContent = "X";
         removeNoteBtn.classList.add("remove-note-btn");
         removeNoteBtn.addEventListener("click", () => {
             handleNoteRemoval(n.id);
