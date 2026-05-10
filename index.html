@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>to-do-list</title>
+  <script type="module" crossorigin src="/to-do-app/assets/index-D8QGduTn.js"></script>
+  <link rel="stylesheet" crossorigin href="/to-do-app/assets/index-BGhQeY9Y.css">
+</head>
+
+<body>
+  <div id="app"></div>
+  <div class="main-container">
+    <div class="func-container">
+      <div class="profile-cont">
+        <img src="/to-do-app/assets/avatar-DioYQbfu.png" alt="avatar" class="img-avatar">
+        <div>
+          <ul>
+            <li>Account</li>
+            <li>Settings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn-cont">
+        <button class="add-proj-btn">Create new project</button>
+      </div>
+      <div class="project-cont"></div>
+    </div>
+    <div class="note-container">
+      <div class="render-note-cont"></div>
+      <div class="add-note-btn-cont">
+        <button class="add-note-btn">add</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <dialog class="proj-dialog">
+      <form class="proj-cont form-container">
+        <label for="form-proj-name">Project name:</label>
+        <input type="text" name="project-name" id="form-proj-name" maxlength="25" required>
+        <button type="submit" class="submit-proj">Create project</button>
+      </form>
+    </dialog>
+  </div>
+  <div>
+    <dialog class="note-dialog">
+      <form class="note-cont form-container">
+        <label for="form-title">Title:</label>
+        <input type="text" name="title" id="form-title" maxlength="17" required>
+        <label for="form-description">Description:</label>
+        <textarea name="description" id="form-description" rows="5" cols="50" placeholder="Your note.."
+          required></textarea>
+        <label for="form-deadline">Deadline date:</label>
+        <input type="date" name="deadline" id="form-deadline" required>
+        <label>
+          <input type="checkbox" name="priority" id="priority" class="checkbox">
+          High priority?</label>
+        <button type="submit" class="submit-note">Add task</button>
+      </form>
+    </dialog>
+  </div>
+
+
+
+
+</body>
+
+</html>
