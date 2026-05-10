@@ -285,8 +285,9 @@ ul {
     }
 
     .render-note-cont {
-        column-width: 100%;
-        column-gap: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        column-gap: 20px;
     }
 
     .new-note-cont {

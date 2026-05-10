@@ -1,4 +1,4 @@
-import { state, setCurrentProjectId, getCurrentProject } from "./state.js";
+import { state, getCurrentProject } from "./state.js";
 import { format } from "date-fns";
 
 export function bindProjModal(handleProjBind) { // 

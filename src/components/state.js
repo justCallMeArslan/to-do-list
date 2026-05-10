@@ -1,5 +1,3 @@
-import { da } from "date-fns/locale";
-
 export const state = {
     projects:[],
     currentProjectId: null // required separately for one source of truth and 
