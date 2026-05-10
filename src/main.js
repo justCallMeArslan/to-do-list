@@ -1,5 +1,5 @@
 import "./style.css";
-import { setCurrentProjectId, state, loadState } from "./components/state.js";
+import { setCurrentProjectId, loadState } from "./components/state.js";
 import {
     bindProjModal, bindNoteModal, updateNoteBtnState, renderProjects, renderNotes
 } from "./components/ui.js";
