@@ -1,5 +1,5 @@
 import "./style.css";
-import { setCurrentProjectId, state } from "./components/state.js";
+import { setCurrentProjectId, state, loadState } from "./components/state.js";
 import {
     bindProjModal, bindNoteModal, updateNoteBtnState, renderProjects, renderNotes
 } from "./components/ui.js";
@@ -8,6 +8,7 @@ import { addProject, deleteProject, addNote, deleteNote, toggleCompleted} from "
 
 bindProjModal(handleProjBind);
 bindNoteModal(handleNoteBind);
+loadState();
 renderApp();
 
 function renderApp() {

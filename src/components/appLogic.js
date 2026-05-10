@@ -1,4 +1,4 @@
-import { state, setCurrentProjectId, getCurrentProject } from "./state.js";
+import { state, setCurrentProjectId, getCurrentProject, saveState } from "./state.js";
 
 export function createProject(name) {
     return {
@@ -15,6 +15,8 @@ export function addProject(name) {
     if (state.projects.length === 1) {
         setCurrentProjectId(project.id);
     }
+
+    saveState();
 }
 
 export function deleteProject(id) {
@@ -27,6 +29,8 @@ export function deleteProject(id) {
             state.currentProjectId = null;
         }
     }
+
+    saveState();
 }
 
 export function createNote({ title, description = "", deadline = null,
@@ -60,6 +64,9 @@ export function addNote(noteData) {
 
     const note = createNote(noteData);
     current.notes.push(note);
+
+
+    saveState();
 }
 
 export function deleteNote(id) {
@@ -71,12 +78,19 @@ export function deleteNote(id) {
     }
 
     current.notes = current.notes.filter(n => n.id !== id);
+
+    saveState();
 }
 
 export function toggleCompleted(id) {
     const currentProject = getCurrentProject();
+
+    if (!currentProject) return;
+
     const note = currentProject.notes.find(n => n.id === id);
     if (!note) return;
 
     note.complete = !note.complete;
+
+    saveState();
 }
