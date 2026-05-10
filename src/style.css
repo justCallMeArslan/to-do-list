@@ -247,3 +247,68 @@ ul {
     font-weight: bold;
     font-size: 18px;
 }
+
+
+@media (max-width: 768px) {
+
+    .main-container {
+        grid-template-columns: 1fr;
+        /* stack sidebar + content */
+        height: auto;
+    }
+
+    .func-container {
+        border-right: none;
+        border-bottom: 2px solid black;
+    }
+
+    .profile-cont {
+        gap: 15px;
+        /* reduce huge spacing */
+        max-height: none;
+        padding: 10px 0;
+    }
+
+    ul {
+        flex-direction: column;
+        /* make menu vertical */
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .btn-cont {
+        width: 100%;
+    }
+
+    .add-proj-btn {
+        font-size: 16px;
+    }
+
+    .render-note-cont {
+        column-width: 100%;
+        /* disable masonry columns on small screens */
+        column-gap: 0;
+    }
+
+    .new-note-cont {
+        width: 100%;
+    }
+
+    .add-note-btn-cont {
+        right: 10px;
+        bottom: 10px;
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .add-note-btn {
+        max-width: 50px;
+        max-height: 50px;
+        font-size: 18px;
+    }
+
+
+    .func-container {
+        overflow-x: auto;
+    }
+}
