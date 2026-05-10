@@ -286,7 +286,6 @@ ul {
 
     .render-note-cont {
         column-width: 100%;
-        /* disable masonry columns on small screens */
         column-gap: 0;
     }
 
